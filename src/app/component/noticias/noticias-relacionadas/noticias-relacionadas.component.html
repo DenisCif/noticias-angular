@@ -1,19 +1,22 @@
-<div class="container">
-    <div class="row">
-        <div class="col-md-4 mb-4" *ngFor="let noticia of noticias">
-            <div class="card">
-                <img [src]="noticia.imagen" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">{{ noticia.titulo }}</h5>
-                    <p class="card-text">{{ noticia.desc_corta }}</p>
-                    <p class="card-text">{{ noticia.categoria }}</p>
-                    <button type="button" class="btn btn-danger" [class.btn-outline-danger]="!noticia.like"
-                        [class.btn-danger]="noticia.like">
-                        <span class="bi-heart" *ngIf="noticia.like"></span>
-                        <span class="bi-heart-fill" *ngIf="!noticia.like"></span>
-                    </button>
-                    <button type="button" class="btn btn-primary" (click)="verDetalles(noticia.id)">Ver</button>
-                </div>
+<div class="row">
+    <div class="col-12">
+        <div class="alert alert-primary {{hayNoticias}}">
+            Noticias Relacionadas
+        </div>
+    </div>
+    <div class="col-md-4 mb-4" *ngFor="let noticia of noticias">
+        <div class="card">
+            <img [src]="noticia.imagen" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">{{ noticia.titulo }}</h5>
+                <p class="card-text">{{ noticia.desc_corta }}</p>
+                <p class="card-text">{{ noticia.categoria }}</p>
+                <button type="button" class="btn btn-danger" [class.btn-outline-danger]="!noticia.like"
+                    [class.btn-danger]="noticia.like">
+                    <span class="bi-heart" *ngIf="noticia.like"></span>
+                    <span class="bi-heart-fill" *ngIf="!noticia.like"></span>
+                </button>
+                <button type="button" class="btn btn-primary" (click)="verDetalles(noticia.id)">Ver</button>
             </div>
         </div>
     </div>

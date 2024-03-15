@@ -11,6 +11,7 @@ import { NoticiaService } from 'src/app/service/noticia/noticia.service';
 export class NoticiasRelacionadasComponent {
   noticias: NoticiaDTO[] | undefined;
   idNoticia: number = 0;
+  hayNoticias: string = 'd-none'
 
   constructor(private noticiasSerice: NoticiaService, private router: Router) { }
 
@@ -25,6 +26,9 @@ export class NoticiasRelacionadasComponent {
         .subscribe(noticias => {
           this.noticias = noticias;
         });
+      this.hayNoticias = '';
+    } else {
+      this.hayNoticias = 'd-none';
     }
   }
 
