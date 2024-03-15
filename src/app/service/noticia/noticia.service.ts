@@ -39,7 +39,7 @@ export class NoticiaService {
     });
 
     return this.http.get<NoticiaDTO[]>(this.baseUrl +
-      '/listado?porCategoria=' + porCategoria + '&idCategoria=' + idCategoria + '&idUsuario'
+      '/listado?porCategoria=' + porCategoria + '&idCategoria=' + idCategoria + '&idUsuario='
       + this.idUsuario, { headers: headers });
   }
 
