@@ -1,8 +1,8 @@
 <div class="container mt-5">
     <div class="row justify-content-center">
-        <div class="col-md-6">
-            <div class="card">
-                <div class="card-header">
+        <div class="col-md-6 contenedor_singup p-5 rounded-5 bg-primary bg-opacity-50">
+            <div class="">
+                <div class="card-header fs-5 text-primary">
                     Registrar Usuario
                 </div>
                 <div class="card-body">
@@ -37,7 +37,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="form-group">
+                        <div class="form-group mb-3">
                             <label for="password">Contraseña</label>
                             <input type="password" class="form-control" id="password"
                                 placeholder="Ingrese su contraseña" formControlName="password">
@@ -53,11 +53,12 @@
                             </div>
                         </div>
                         <button type="submit" class="btn btn-primary btn-block"
-                            [disabled]="registerForm.invalid || loading">Registrarse
-                            <span *ngIf="!loading">Iniciar Sesión</span>
+                            [disabled]="registerForm.invalid || loading"><i
+                                class="bi bi-person-fill-add"></i>&nbsp;Registrarse
+                            <span *ngIf="!loading">Registrando usuario</span>
                             <span *ngIf="loading" class="spinner-border spinner-border-sm" role="status"
                                 aria-hidden="true"></span>
-                            <span *ngIf="loading" class="ml-2">Iniciando sesión...</span>
+                            <span *ngIf="loading" class="ml-2">Registrando usuario...</span>
                         </button>
                     </form>
                 </div>
