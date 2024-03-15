@@ -1,6 +1,7 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Router } from '@angular/router';
+import { Observable, catchError, throwError } from 'rxjs';
 import { NoticiaDTO } from 'src/app/dto/Noticia.dto';
 
 @Injectable({
@@ -12,7 +13,7 @@ export class NoticiaService {
   private token = sessionStorage.getItem('token');
   private idUsuario = sessionStorage.getItem('idUsuario');
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private router: Router) { }
 
   listarNoticias(): Observable<NoticiaDTO[]> {
     const headers = new HttpHeaders({
@@ -20,7 +21,15 @@ export class NoticiaService {
       'Authorization': `Bearer ${this.token}`
     });
 
-    return this.http.get<NoticiaDTO[]>(this.baseUrl + '/listado?idUsuario=' + this.idUsuario, { headers: headers });
+    return this.http.get<NoticiaDTO[]>(this.baseUrl + '/listado?idUsuario=' + this.idUsuario, { headers: headers })
+      .pipe(
+        catchError((error: HttpErrorResponse) => {
+          if (error.status === 403) {
+            this.router.navigate(['/signin']);
+          }
+          return throwError(() => error);
+        })
+      );
   }
 
   listarNoticiasPorCategoria(porCategoria: boolean, idCategoria: number): Observable<NoticiaDTO[]> {
@@ -39,7 +48,16 @@ export class NoticiaService {
       'Content-Type': 'application/json',
       'Authorization': `Bearer ${this.token}`
     });
-    return this.http.get<NoticiaDTO>(this.baseUrl + '/ver/' + idNoticia + '?idUsuario=' + this.idUsuario, { headers: headers });
+
+    return this.http.get<NoticiaDTO>(this.baseUrl + '/ver/' + idNoticia + '?idUsuario=' + this.idUsuario, { headers: headers })
+      .pipe(
+        catchError((error: HttpErrorResponse) => {
+          if (error.status === 403) {
+            this.router.navigate(['/signin']);
+          }
+          return throwError(() => error);
+        })
+      );
   }
 
   listarNoticiasRelacionadas(idNoticia: number): Observable<NoticiaDTO[]> {
