@@ -7,14 +7,19 @@
                     <h5 class="card-title">{{ noticia.titulo }}</h5>
                     <p class="card-text">{{ noticia.desc_corta }}</p>
                     <p class="card-text">{{ noticia.categoria }}</p>
-                    <button type="button" class="btn btn-danger" [class.btn-outline-danger]="!noticia.like"
-                        [class.btn-danger]="noticia.like" (click)="darLike(noticia.id)">
+                </div>
+                <div class="botones">
+                    <button type="button" class="btn me-2 btn_card btn-danger"
+                        [class.btn-outline-danger]="!noticia.like" [class.btn-danger]="noticia.like"
+                        (click)="darLike(noticia.id)">
                         <span class="bi-heart" *ngIf="noticia.like"></span>
                         <span class="bi-heart-fill" *ngIf="!noticia.like"></span>
                     </button>
-                    <button type="button" class="btn btn-primary" (click)="verDetalles(noticia.id)">Ver</button>
+                    <button type="button" class="btn btn_card btn-primary"
+                        (click)="verDetalles(noticia.id)">Ver</button>
                 </div>
             </div>
+
         </div>
     </div>
     <div class="row justify-content-center">

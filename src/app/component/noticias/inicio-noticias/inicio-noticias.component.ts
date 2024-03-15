@@ -17,7 +17,7 @@ export class InicioNoticiasComponent {
   porCategoria: boolean = false;
 
   currentPage: number = 1;
-  pageSize: number = 5
+  pageSize: number = 5;
 
   constructor(private noticiasSerice: NoticiaService, private router: Router) { }
 
