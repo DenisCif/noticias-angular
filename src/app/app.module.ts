@@ -23,7 +23,7 @@ import { NoticiasRelacionadasComponent } from './component/noticias/noticias-rel
     InicioNoticiasComponent,
     CategoriasComponent,
     DetalleNoticiaComponent,
-    NoticiasRelacionadasComponent
+    NoticiasRelacionadasComponent,
   ],
   imports: [
     BrowserModule,

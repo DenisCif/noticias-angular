@@ -12,6 +12,8 @@ export class LoginComponent implements OnInit {
   loginForm!: FormGroup;
   loading: boolean = false; // Variable para controlar la visibilidad del spinner
 
+  logout: string = "d-none";
+
   constructor(private formBuilder: FormBuilder, private authService: AuthService, private router: Router) {
     this.loginForm = this.formBuilder.group({
       email: ['', [Validators.required, Validators.email]],
@@ -20,6 +22,7 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.verificaLogout();
   }
 
   get email() {
@@ -45,6 +48,16 @@ export class LoginComponent implements OnInit {
       ).add(() => {
         this.loading = false; // Ocultar el spinner al completar la operación
       });
+    }
+    sessionStorage.removeItem("logout")
+  }
+
+  verificaLogout() {
+    var logout = sessionStorage.getItem("logout");
+    if (logout = "true") {
+      this.logout = '';
+    } else {
+      this.logout = 'd-none'
     }
   }
 }

@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg bg-body-tertiary">
+<nav class="navbar bg-primary mb-2 navbar-expand-lg" data-bs-theme="dark">
   <div class="container-fluid">
     <a class="navbar-brand" routerLink="/">Navbar</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
@@ -12,19 +12,25 @@
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Categorias
+            <i class="bi bi-person-circle"></i> Usuario
           </a>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" routerLink="/signin" href="#">1</a></li>
-            <li><a class="dropdown-item" href="#">2</a></li>
-            <li><a class="dropdown-item" href="#">3</a></li>
+            <li><a class="dropdown-item" routerLink="/signin">Iniciar sesion</a></li>
+            <li><a class="dropdown-item" routerLink="/signup">Registrar usuario</a></li>
+            <li><a class="dropdown-item" (click)="cerrarSesion()">Cerrar sesion</a></li>
           </ul>
         </li>
       </ul>
     </div>
   </div>
 </nav>
-<main>
+<main class="m-1">
   <router-outlet></router-outlet>
+  <div class="container mt-3">
+    <div class="row">
+      <div class="col-12 text-end">
+        <button class="btn btn-outline-primary" (click)="goBack()">Volver Atrás</button>
+      </div>
+    </div>
+  </div>
 </main>
-<button class="btn btn-secondary go-back-button" (click)="goBack()">Volver Atrás</button>
