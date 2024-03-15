@@ -75,12 +75,7 @@ export class NoticiaService {
       'Authorization': `Bearer ${this.token}`
     });
 
-    const body = {
-      idUsuario: this.idUsuario,
-      idNoticia: idNoticia
-    };
-
-    return this.http.post<any>(this.baseUrl + '/like', body, { headers: headers });
+    return this.http.post<any>(this.baseUrl + '/like?idUsuario=' + this.idUsuario + '&idNoticia=' + idNoticia, { headers: headers });
   }
 
 }

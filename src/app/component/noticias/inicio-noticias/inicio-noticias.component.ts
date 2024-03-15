@@ -1,3 +1,4 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { NoticiaDTO } from 'src/app/dto/Noticia.dto';
@@ -80,5 +81,22 @@ export class InicioNoticiasComponent {
     }
 
   }
+
+  darLike(idNoticia: number): void {
+    this.noticiasSerice.darLike(idNoticia).subscribe(
+      respuesta => {
+        console.log('Like dado correctamente:', respuesta);
+      },
+      error => {
+        console.error('Error al dar like:', error);
+        if (error instanceof HttpErrorResponse) {
+          console.error('Estado del error:', error.status);
+          console.error('Texto del error:', error.statusText);
+          console.error('Cuerpo del error:', error.error);
+        }
+      }
+    );
+  }
+
 
 }

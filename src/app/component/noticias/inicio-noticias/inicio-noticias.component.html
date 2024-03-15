@@ -8,7 +8,7 @@
                     <p class="card-text">{{ noticia.desc_corta }}</p>
                     <p class="card-text">{{ noticia.categoria }}</p>
                     <button type="button" class="btn btn-danger" [class.btn-outline-danger]="!noticia.like"
-                        [class.btn-danger]="noticia.like">
+                        [class.btn-danger]="noticia.like" (click)="darLike(noticia.id)">
                         <span class="bi-heart" *ngIf="noticia.like"></span>
                         <span class="bi-heart-fill" *ngIf="!noticia.like"></span>
                     </button>
