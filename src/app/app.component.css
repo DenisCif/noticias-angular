@@ -8,3 +8,11 @@
 footer {
     background-color: black;
 }
+
+.logo {
+    width: 75px;
+}
+
+ul {
+    font-size: 20px;
+}
