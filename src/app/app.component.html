@@ -35,7 +35,10 @@
   <router-outlet></router-outlet>
   <div class="container mt-3 mb-5">
     <div class="row">
-      <div class="col-12 text-end">
+      <div class="col-12 d-none d-md-block text-end">
+        <button class="btn btn-sm btn-primary btn-goBack" (click)="goBack()">Volver Atrás</button>
+      </div>
+      <div class="col-11 d-md-none text-end">
         <button class="btn btn-sm btn-primary btn-goBack" (click)="goBack()">Volver Atrás</button>
       </div>
     </div>
