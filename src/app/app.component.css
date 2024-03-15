@@ -1,0 +1,10 @@
+.texto-footer {
+    font-weight: 700;
+    margin-right: 10px;
+    color: rgb(255, 255, 255);
+    text-size-adjust: 10;
+}
+
+footer {
+    background-color: black;
+}
