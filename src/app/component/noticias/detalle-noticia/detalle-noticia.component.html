@@ -1,1 +1,26 @@
-<p>detalle-noticia works!</p>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <img [src]="noticia?.imagen" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">{{ noticia?.titulo }}</h5>
+                    <p class="card-text">{{ noticia?.desc_larga }}</p>
+                    <p class="card-text">{{ noticia?.categoria }}</p>
+                    <button type="button" class="btn btn-danger" [class.btn-outline-danger]="!noticia?.like"
+                        [class.btn-danger]="noticia?.like">
+                        <span class="bi-heart" *ngIf="noticia?.like"></span>
+                        <span class="bi-heart-fill" *ngIf="!noticia?.like"></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container mt-5 m-3">
+    <div class="row">
+        <div class="col-12">
+            <app-noticias-relacionadas></app-noticias-relacionadas>
+        </div>
+    </div>
+</div>
