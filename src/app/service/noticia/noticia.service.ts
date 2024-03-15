@@ -51,4 +51,18 @@ export class NoticiaService {
     return this.http.get<NoticiaDTO[]>(this.baseUrl + '/' + idNoticia + '/relacionadas?=idUsuario=' + this.idUsuario, { headers: headers });
   }
 
+  darLike(idNoticia: number): Observable<any> {
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${this.token}`
+    });
+
+    const body = {
+      idUsuario: this.idUsuario,
+      idNoticia: idNoticia
+    };
+
+    return this.http.post<any>(this.baseUrl + '/like', body, { headers: headers });
+  }
+
 }
