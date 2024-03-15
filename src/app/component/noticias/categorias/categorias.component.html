@@ -1,1 +1,13 @@
-<p>categorias works!</p>
+<div class="dropdown">
+    <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+        Categorías
+    </button>
+    <ul class="dropdown-menu">
+        <li>
+            <a class="dropdown-item" href="#" (click)="quitarFiltro()">No filtrar</a>
+        </li>
+        <li *ngFor="let categoria of categorias">
+            <a class="dropdown-item" href="#" (click)="guardarIdCategoria(categoria.id)">{{ categoria.nombre }}</a>
+        </li>
+    </ul>
+</div>
